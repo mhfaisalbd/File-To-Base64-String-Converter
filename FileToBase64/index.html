@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File to Base64 String</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <div class="form-group row">
+            
+            <div class="col-md-4 p-2" style="background: linear-gradient(to right,transparent, rgba(64,0,128,0.5));">
+                <img alt="Preview not available" id="output_image" class="img-thumbnail row col-md-10  float-right m-4" style="width: 256px; height: auto;" />
+                <div class="col-md-9 row  float-right custom-file mt-2 mr-4">
+                    <input onchange="preview_image(event)" class="form-control custom-file-input" type="file"/>
+                    <label class="custom-file-label">Choose File</label>
+                </div>
+            </div>
+            <div class="col-md-8 p-2" style="background: linear-gradient(to right, rgba(0,64,128,0.5), transparent);">
+                <div class="row mt-4">
+                    <label for="base64String" class=" col-md-2 control-label mr-2"><b>Base 64 String:</b></label>
+                    <textarea class="col-md-9" name="base64String" id="base64String" cols="60" rows="10"></textarea>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        var photoPath = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAACl1BMVEVHcEwA/wCA/4BKwURMwENKwUZKwURKwkRLwEVKwURKwURKwURRvENKwURKwURAv0BKwkRKwUVKwURKwURKwkRHxkdLv0RKwURKwUVLw0ZGuUZLwURGxUZJwUREu0RVqlVKw0NNv0BJwURKwkRKwURKwURKwURLwURKwURMw0dKwURNv0ZKwURIxEFKwURLw0tKwURKwURKwURLwkRLwURKwURNzE1KwENLwUJKwUNKwURJwkNKwENLwUQzzDNLwUNKwURJwURHwkdKwURJwERKwkVIwkNJtklMwUVOxEVLwENVxjlKwURJwURKwURKwURKwURKwENJwURMwEVOvENJwUZMvUJKw0ZKwURKwURKwUVMv0RGwUZAv0BKwUNJyElJv0BKv0NKwUVLwEVHxEFKwURV1VVMwkJKwURJv0RQv0BKwURJwURKwURJwERKwURKwURKwkRKwURKwURKwkVJwkNKwkVKwURJwERKv0BJwURKwUNLv0ZJwURKwURJvUJKwURLwURJwUNKwERLwEVIwkVKv0VKwEVLwkRKwERKwEVKwURLwkVKwkRKwkNLw0RLwkRKwURIv0RJwEZLwURKwERKwURKwUNKwURJwURJwUVHv0dLwUNJwURKwUVOxDtJwkNKwkRLwEVJwklKwkVKwURIwUVKwURKwURLwkRNwkJKwURKwEVKwkVAv0BLwUVNxERKwURLwUVKwUVLwURKwUVJwURLwENKwURKwERLwENJwURKwURJwURLwURJwEJLwURJwEVIwENJwkNJwkVKwURKwURKwENKwURKvUJKwURKwkRLwURKwURJwkRJwkVKwURNwUZJwENLwkNKw0NJwURKwURKwUNKwURJwUVKwURJwkRKwUSeagSGAAAA3HRSTlMAAQKAOT70qlXx/f4T6+kEu5Hn++ASRPfjMwvzFuwPAyYU5U/k+O1m1y/HKPknsBHEufzDpMgKozrBzFTQvAVj6ogZ1ZJkLgclGj0J4o/hwq1FMVEXQhs3y6xvQB0IZw4cSMWCK/IGNr44EC2Z5mXw0bfW+mB9ie9pGF6QLGKlI+gprq/UQzRdR2GG9lzceSJLqDxNk45a34PGRiSMsZgNgaZ+FY3KSu7PljJ8WWgMTh7Td7p7yc1B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';
+        document.getElementById('output_image').src = photoPath;
+
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var imgOutput = document.getElementById('output_image');
+                var textOutput = document.getElementById('base64String');
+                imgOutput.src = reader.result;
+                textOutput.value = imgOutput.src;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
